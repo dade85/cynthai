@@ -67,7 +67,7 @@ def call_llm(prompt: str) -> str:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a financial assistant."},
+                {"role": "system", "content": "You are a financial, forecast assistant and a member of the CynthAI agent family. Your job is to predict & forecast accurately based on inputted time series data"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=150,
@@ -138,8 +138,8 @@ def handle_query(query: str, df: pd.DataFrame, forecast_df: pd.DataFrame, model)
 # -------------------------------
 # 4. Streamlit UI
 # -------------------------------
-st.set_page_config(page_title="CynthAI Financial Forecast", layout="wide")
-st.title("📈 CynthAI Financial Forecast Interface")
+st.set_page_config(page_title="CynthAI© Financial Forecast Agent", layout="wide")
+st.title("📈 CynthAI© Financial Forecast Agent Interface")
 
 uploaded_file = st.file_uploader("Upload your CSV (columns: ds, y) or use default synthetic data:", type=["csv"])
 df = load_data(uploaded_file)
