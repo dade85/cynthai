@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+matplotlib
+prophet
+openai>=1.0.0
