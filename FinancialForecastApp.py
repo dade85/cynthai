@@ -94,8 +94,7 @@ def forecast_summary(df: pd.DataFrame, forecast_df: pd.DataFrame) -> str:
     avg = forecast_period['yhat'].mean()
     trend = "upward" if end['yhat'] > start['yhat'] else "downward" if end['yhat'] < start['yhat'] else "flat"
     return (
-        f"Forecast period: {forecast_period['ds'].min().date()} to {forecast_period['ds'].max().date()}
-"
+        f"Forecast period: {forecast_period['ds'].min().date()} to {forecast_period['ds'].max().date()}"
         f"Start: {start['yhat']:.2f}, End: {end['yhat']:.2f}, Avg: {avg:.2f} ({trend} trend)"
     )
 
@@ -133,8 +132,7 @@ def handle_query(query: str, df: pd.DataFrame, forecast_df: pd.DataFrame, model)
         except:
             return "Invalid date format. Use YYYY-MM-DD."
     else:
-        prompt = forecast_summary(df, forecast_df) + "
-User query: " + query
+        prompt = forecast_summary(df, forecast_df) + "User query: " + query
         return call_llm(prompt)
 
 # -------------------------------
